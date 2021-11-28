@@ -16,22 +16,22 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
-public class MainViewController implements Initializable{
+public class MainViewController implements Initializable {
 
 	@FXML
 	private MenuItem menuItemSeller;
 	
 	@FXML
-	private MenuItem menuItemDepartement;
+	private MenuItem menuItemDepartment;
 	
 	@FXML
 	private MenuItem menuItemAbout;
-	
+
 	@FXML
 	public void onMenuItemSellerAction() {
 		System.out.println("onMenuItemSellerAction");
 	}
-	
+
 	@FXML
 	public void onMenuItemDepartmentAction() {
 		loadView("/gui/DepartmentList.fxml");
@@ -57,11 +57,11 @@ public class MainViewController implements Initializable{
 			Node mainMenu = mainVBox.getChildren().get(0);
 			mainVBox.getChildren().clear();
 			mainVBox.getChildren().add(mainMenu);
-			mainVBox.getChildren().addAll(newVBox);
+			mainVBox.getChildren().addAll(newVBox.getChildren());
 		}
-		catch(IOException e) {
-			Alerts.showAlert("IO Exception ", "Error load view", e.getMessage(), AlertType.ERROR);
+		catch (IOException e) {
+			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
 	}
-
+	
 }
